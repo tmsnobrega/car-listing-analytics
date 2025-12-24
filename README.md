@@ -5,7 +5,13 @@
 
 ## **Project Overview**
 
-This project explores the used and new car market in the Netherlands through data collected from publicly available online listings. By combining web scraping, data analysis, and machine learning, it demonstrates an end-to-end analytics workflow, from data ingestion to insights, visualization, and model deployment.
+This project analyzes the Dutch used and new car market using publicly available listings to build an end-to-end analytics and machine-learning workflow. It covers the full lifecycle from data ingestion and processing to visualization and price prediction.
+
+Buying a car often involves uncertainty, as prices vary widely based on factors such as brand, model, age, mileage, engine power, and market conditions. This project addresses that challenge by continuously collecting real-world listings, standardizing key attributes, and transforming them into analytics-ready datasets that support both exploratory insights and predictive modeling.
+
+At its core, the project demonstrates how web-scraped data can be converted into reliable market intelligence. Listings are collected periodically, cleaned, enriched, and curated through layered transformations. The resulting data powers interactive dashboards for market analysis and a machine-learning model that estimates car prices based on selected vehicle characteristics.
+
+The outcome is a practical system that helps buyers, analysts, and enthusiasts better understand pricing dynamics and identify potentially undervalued listings in the Dutch car market.
 
 ## **Project Objectives**
 
@@ -20,6 +26,8 @@ The emphasis is on practical insights and clarity, rather than exhaustive modeli
 ## **Dataset Overview**
 
 The dataset is collected programmatically from publicly accessible car listings posted by users in the Netherlands. The data describes vehicles offered for sale and includes information such as vehicle characteristics, pricing, seller type, and listing metadata. No personal identifiers are collected, and the project does not attempt to track or profile individual users.
+
+In addition to scraped listing data, selected fields are enriched using the GeoNames API. Location-related attributes are derived from postal codes found in the listings, allowing geographic context to be added in a structured and reproducible way. This enrichment step demonstrates the integration of external APIs into the data pipeline.
 
 Because the data is obtained from the web:
 - Some fields may be missing or inconsistently formatted
@@ -53,6 +61,9 @@ car-listing-analytics/
 ├── src/
 │   ├── scraping/
 │   │   └── spider.py           # Scrapy spider logic
+│   │
+│   ├── enrichment/
+│   │   ├── geonames.py         # Geo data enrichment
 │   │
 │   ├── cleaning/
 │   │   ├── rules.py            # Cleaning rules (pure functions)
